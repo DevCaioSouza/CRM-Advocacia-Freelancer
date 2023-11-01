@@ -27,43 +27,44 @@
   cursor: pointer;
 }
 
-.board-wrapper{
-  display: flex;
-  margin-top: 10px;
+.cdkTableContainer{
 
-  .board-columns{
+  margin-top: 20px;
+
+  .example-list {
+    width: 600px;
+    max-width: 100%;
+    border: solid 1px #ccc;
+    min-height: 40px;
     display: flex;
-
-    .board-column{
-      display: flex;
-      flex-direction: column;
-
-      margin: 10px 0px;
-
-      height: 215px;
-      min-width: 200px;
-      text-align: center;
-
-      background-color: #fff;
-
-      .title{
-        font-weight: bold;
-        color: red;
-      }
-
-      .board-row{
-        border-top: 1px solid #232323;
-        padding: 12px 0px;
-
-        &:nth-child(even){
-          background-color: rgb(220, 220, 220);
-        }
-
-        &:last-child{
-          border-bottom: 1px solid #232323;
-        }
-      }
-
-    }
+    flex-direction: row;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
   }
+
+  .example-box {
+    padding: 20px 10px;
+    border-right: solid 1px #ccc;
+    color: rgba(0, 0, 0, 0.87);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    cursor: move;
+    background: white;
+    font-size: 14px;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+}
+
+.header{
+  background-color: #fff;
+  border-radius: 4px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
 }
