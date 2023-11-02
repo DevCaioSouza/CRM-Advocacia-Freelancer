@@ -9,17 +9,22 @@ import { LoginComponent } from './auth/login/login.component';
 import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { MainComponent } from './main/main.component';
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { LeadModalComponent } from './lead-modal/lead-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignUpComponent,
-    MainComponent
+    MainComponent,
+    LeadModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    DragDropModule
+    DragDropModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

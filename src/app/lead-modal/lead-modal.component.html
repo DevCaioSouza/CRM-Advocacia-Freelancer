@@ -1,0 +1,48 @@
+<div class="modal-container">
+  <div class="title">
+    <h1 mat-dialog-title>Adicionar Novo Lead</h1>
+  </div>
+
+  <form class="form">
+    <h2>Dados do Lead</h2>
+
+    <label for="nome" mat-dialog-title>Nome Completo*</label>
+    <input type="text">
+    <label for="nome" mat-dialog-title>Email*</label>
+    <input type="email">
+    <label for="nome" mat-dialog-title>Telefone*</label>
+    <input type="text">
+
+  </form>
+
+  <div class="checkbox-container">
+    <h2 mat-dialog-title>Oportunidades</h2><br>
+
+    <div class="checkboxes">
+      <input type="checkbox" name="todos" #selectAllBoxes (change)="changeCheckBoxValue($event)">
+      <label for="todos">Todos</label><br>
+
+      <input type="checkbox" name="sucumbenciais"#selectOption>
+      <label for="sucumbenciais">Honorários Sucumbenciais</label><br>
+
+      <input type="checkbox" name="contratuais" #selectOption>
+      <label for="contratuais">Honorários Contratuais</label><br>
+
+      <input type="checkbox" name="dativos"  #selectOption>
+      <label for="dativos">Honorários Dativos</label><br>
+
+      <input type="checkbox" name="autor" #selectOption>
+      <label for="autor">Crédito do Autor</label><br>
+    </div>
+
+
+
+  </div>
+
+
+  <div mat-dialog-actions>
+    <button class="btn" mat-button (click)="cancel()">Cancelar</button>
+    <button class="save">Salvar</button>
+  </div>
+</div>
+
