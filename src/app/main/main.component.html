@@ -17,19 +17,13 @@
 
   <div class="cdkTableContainer">
 
-    <div class="example-list" cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
+    <div class="example-list"
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    class="example-list"
+    (cdkDropListDropped)="drop($event)">
       <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
     </div>
-    <div class="example-list" cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
-    </div>
-    <div class="example-list" cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
-    </div>
-    <div class="example-list" cdkDropList cdkDropListOrientation="horizontal" class="example-list" (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
-    </div>
-
   </div>
 
 

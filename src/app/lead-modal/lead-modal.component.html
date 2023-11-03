@@ -7,11 +7,11 @@
     <h2>Dados do Lead</h2>
 
     <label for="nome" mat-dialog-title>Nome Completo*</label>
-    <input type="text">
+    <input type="text" #nomeCompleto>
     <label for="nome" mat-dialog-title>Email*</label>
-    <input type="email">
+    <input type="email" #userEmail>
     <label for="nome" mat-dialog-title>Telefone*</label>
-    <input type="text">
+    <input type="text" #phoneNumber>
 
   </form>
 
@@ -42,7 +42,7 @@
 
   <div mat-dialog-actions>
     <button class="btn" mat-button (click)="cancel()">Cancelar</button>
-    <button class="save">Salvar</button>
+    <button class="save" (click)="saveLeadData()">Salvar</button>
   </div>
 </div>
 
