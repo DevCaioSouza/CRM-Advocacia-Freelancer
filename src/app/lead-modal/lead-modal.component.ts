@@ -33,37 +33,18 @@ export class LeadModalComponent {
     private dataService: DataService
   ) {}
 
-
-  // data: any;
-
-  // sendDataToService() {
-  //   this.dataService.setData(this.data);
-  // }
-
-  //testando service - fim
-
   saveLeadData(): void {
-    // console.log('Clicou em Salvar', this.usernameElement.nativeElement.value);
     const userName = this.usernameElement.nativeElement.value;
     const userEmail = this.userEmailElement.nativeElement.value;
     const userPhoneNumber = this.userPhoneNumberElement.nativeElement.value;
-    // console.log(userName, userEmail, userPhoneNumber);
 
     const userData = [userName, userEmail, userPhoneNumber];
     this.dialogRef.close();
 
-    this.dataService.setData(userData[0])
+    this.dataService.setData(userName)
+
+    localStorage.setItem('userNameStored', JSON.stringify(userName))
   }
-
-
-
-
-  // data: any = this.saveLeadData()
-
-  // sendDataToService() {
-  //   this.dataService.setData(this.data);
-  // }
-
 
 
 
@@ -96,8 +77,5 @@ export class LeadModalComponent {
   cancel(): void {
     this.dialogRef.close();
   }
-}
-function sendDataToService() {
-  throw new Error('Function not implemented.');
 }
 

@@ -11,13 +11,19 @@ import { DataService } from '../data.service';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
-  constructor(public dialog: MatDialog, private dataService: DataService) {}
+  constructor(
+    public dialog: MatDialog, private dataService: DataService) {}
 
   ngOnInit() {
     this.dataService.currentData.subscribe((data) => {
-      console.log(data);
-      this.leadRoles = [data];
+      this.leadRoles = [data, '', ''];
+      console.log(localStorage.getItem('userNameStored'))
     });
+
+    if(localStorage.getItem('userNameStored')){
+      const storedUserName: string = JSON.parse(localStorage.getItem('userNameStored')!)
+      this.leadRoles = [storedUserName, '' , '']
+    }
   }
 
   leadRoles: any;

@@ -10,6 +10,12 @@ import { SignUpComponent } from './auth/sign-up/sign-up.component';
 import { MainComponent } from './main/main.component';
 
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 import { LeadModalComponent } from './lead-modal/lead-modal.component';
 
 @NgModule({
@@ -24,7 +30,11 @@ import { LeadModalComponent } from './lead-modal/lead-modal.component';
     BrowserModule,
     AppRoutingModule,
     DragDropModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
