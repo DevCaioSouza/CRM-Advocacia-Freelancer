@@ -3,21 +3,29 @@
   <form class="form">
     <h3>Criar conta</h3>
     <div class="form-group">
-      <label for="nome">Seu nome completo: <span>*</span></label>
+      <label for="nome">Seu nome completo: <span class="star">*</span></label>
       <input type="text" name="nome" #name>
     </div>
     <div class="form-group">
-      <label for="email">Seu melhor e-mail: <span>*</span></label>
+      <label for="email">Seu melhor e-mail: <span class="star">*</span></label>
       <input type="email" name="email" #email autocomplete="on">
     </div>
     <div class="form-group">
-      <label for="senha:">Senha: <span>*</span></label>
-      <input type="password" name="nome" placeholder="********" #password>
+      <label for="senha:">Senha: <span class="star">*</span></label>
+      <input name="nome" placeholder="Escolha uma senha forte" #password [type]=" changeTypeA ? 'password' : 'text' ">
+      <span class="eye-icon" (click)="changeIconPassword()"><i [ngClass]=" visible ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash' "></i></span>
     </div>
+
+
     <div class="form-group">
-      <label for="senha:">Confirme sua senha: <span>*</span></label>
-      <input type="password" name="nome" placeholder="********" #confirmPassword autocomplete="on">
+      <label for="senha:">Confirme sua senha: <span class="star">*</span></label>
+      <input name="nome" placeholder="Confirme a senha" #confirmPassword autocomplete="on" [type]=" changeTypeB ? 'password' : 'text' ">
+      <span class="eye-icon" (click)="changeIconConfirm()"><i [ngClass]=" visibleConfirm ? 'fa-solid fa-eye' : 'fa-solid fa-eye-slash' "></i></span>
+
+
     </div>
+
+
     <div class="redirect-signup">
       <p>Já tem uma conta? <a href="/login">Fazer login</a></p>
     </div>

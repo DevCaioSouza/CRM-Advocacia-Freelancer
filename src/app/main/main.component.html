@@ -3,7 +3,51 @@
 
   <button class="btn" (click)="addLead()">+ Novo Lead</button>
 
-  <div class="header">
+  <div class="root">
+    <div class="board">
+
+      <div class="board-bar">
+        <p class="board-name">{{ board.name }}</p>
+      </div>
+
+      <div class="board-wrapper">
+
+        <div class="board-columns" cdkDropListGroup>
+          <div class="board-column" *ngFor="let column of board.columns">
+
+            <div class="column-title">
+              {{ column.name }}
+            </div>
+
+            <div class="tasks-container"
+            cdkDropList
+            [cdkDropListData]="column.tasks"
+            (cdkDropListDropped)="drop($event)">
+              <div class="task" *ngFor="let item of column.tasks" cdkDrag>
+                {{ item }}
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- <div class="header">
     <div class="box">
       <h3>Cliente Potencial</h3>
     </div>
@@ -25,39 +69,7 @@
       <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
     </div>
 
-    <div class="example-list"
-    cdkDropList
-    cdkDropListOrientation="horizontal"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag></div>
-    </div>
-
-    <div class="example-list"
-    cdkDropList
-    cdkDropListOrientation="horizontal"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag></div>
-    </div>
-
-    <div class="example-list"
-    cdkDropList
-    cdkDropListOrientation="horizontal"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag></div>
-    </div>
-
-    <div class="example-list"
-    cdkDropList
-    cdkDropListOrientation="horizontal"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag></div>
-    </div>
-
-  </div>
+  </div> -->
 
 
 </div>

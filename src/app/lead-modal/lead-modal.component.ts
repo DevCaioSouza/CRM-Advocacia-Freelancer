@@ -38,15 +38,9 @@ export class LeadModalComponent {
     const userEmail = this.userEmailElement.nativeElement.value;
     const userPhoneNumber = this.userPhoneNumberElement.nativeElement.value;
 
-    const userData = [userName, userEmail, userPhoneNumber];
+    this.dataService.setData(userName);
     this.dialogRef.close();
-
-    this.dataService.setData(userName)
-
-    localStorage.setItem('userNameStored', JSON.stringify(userName))
   }
-
-
 
   changeCheckBoxValue(event: any) {
     const isChecked = event.srcElement.checked;
@@ -78,4 +72,3 @@ export class LeadModalComponent {
     this.dialogRef.close();
   }
 }
-

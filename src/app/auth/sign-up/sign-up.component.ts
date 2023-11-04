@@ -21,6 +21,22 @@ export class SignUpComponent {
   @ViewChild('confirmPassword')
   confirmPasswordRef!: ElementRef;
 
+  visible: boolean = false;
+  visibleConfirm: boolean = false;
+
+  changeTypeA: boolean = true;
+  changeTypeB: boolean = true;
+
+  changeIconPassword() {
+    this.visible = !this.visible;
+    this.changeTypeA = !this.changeTypeA;
+  }
+
+  changeIconConfirm() {
+    this.visibleConfirm = !this.visibleConfirm;
+    this.changeTypeB = !this.changeTypeB;
+  }
+
   openSnackBar(message: string, action: any) {
     const config = new MatSnackBarConfig();
     config.duration = 5000;
@@ -29,11 +45,17 @@ export class SignUpComponent {
   }
 
   checkSignupForm() {
+    const nameInput = this.nameRef.nativeElement.value;
+    const emailInput = this.emailRef.nativeElement.value;
     const passwordInput = this.passwordRef.nativeElement.value;
     const confirmPasswordInput = this.confirmPasswordRef.nativeElement.value;
 
     if (passwordInput != confirmPasswordInput) {
       this.openSnackBar('Confirmação de senha incorreta', 'X');
+    }
+
+    if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
+      this.openSnackBar('Preencha os campos obrigatórios', 'X');
     }
   }
 }
