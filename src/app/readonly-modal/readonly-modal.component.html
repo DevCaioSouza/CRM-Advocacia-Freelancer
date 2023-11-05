@@ -1,0 +1,48 @@
+<div class="modal-container">
+  <div class="title">
+    <h1 mat-dialog-title>Dados do Lead - Tela não alterável</h1>
+  </div>
+
+  <form class="form">
+    <h2>Dados do Lead</h2>
+
+    <label for="nome" mat-dialog-title>Nome Completo*</label>
+    <input type="text" #nomeCompleto disabled>
+    <label for="nome" mat-dialog-title>Email*</label>
+    <input type="email" #userEmail disabled>
+    <label for="nome" mat-dialog-title>Telefone*</label>
+    <input type="text" #phoneNumber disabled>
+
+  </form>
+
+  <div class="checkbox-container">
+    <h2 mat-dialog-title>Oportunidades</h2><br>
+
+    <div class="checkboxes">
+      <input type="checkbox" name="todos" #selectAllBoxes disabled>
+      <label for="todos">Todos</label><br>
+
+      <input type="checkbox" name="sucumbenciais"#selectOption disabled>
+      <label for="sucumbenciais">Honorários Sucumbenciais</label><br>
+
+      <input type="checkbox" name="contratuais" #selectOption disabled>
+      <label for="contratuais">Honorários Contratuais</label><br>
+
+      <input type="checkbox" name="dativos"  #selectOption disabled>
+      <label for="dativos">Honorários Dativos</label><br>
+
+      <input type="checkbox" name="autor" #selectOption disabled>
+      <label for="autor">Crédito do Autor</label><br>
+    </div>
+
+
+
+  </div>
+
+
+  <div mat-dialog-actions>
+    <button class="btn" mat-button (click)="cancel()">Voltar</button>
+  </div>
+</div>
+
+

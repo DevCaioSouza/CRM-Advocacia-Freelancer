@@ -14,6 +14,9 @@ import { DataService } from '../data.service';
   styleUrls: ['./lead-modal.component.scss'],
 })
 export class LeadModalComponent {
+  @ViewChild('selectAllBoxes')
+  selectAllBoxesRef!: ElementRef;
+
   @ViewChildren('selectOption')
   selectOptionRef!: QueryList<any>;
 
@@ -38,7 +41,27 @@ export class LeadModalComponent {
     const userEmail = this.userEmailElement.nativeElement.value;
     const userPhoneNumber = this.userPhoneNumberElement.nativeElement.value;
 
+    const allUserTextData = [userName, userEmail, userPhoneNumber]
+
     this.dataService.setData(userName);
+
+    //Lidando com os dados de input do Checkbox
+
+    const checkboxSelectAll = this.selectAllBoxesRef;
+    const checkboxArray = this.selectOptionRef.toArray();
+    console.log(this.selectAllBoxesRef.nativeElement.checked)
+
+    localStorage.setItem('checkboxTodos', JSON.stringify(checkboxSelectAll.nativeElement.checked))
+    localStorage.setItem('checkboxHonorSuc', JSON.stringify(checkboxArray[0].nativeElement.checked))
+    localStorage.setItem('checkboxHonorCon', JSON.stringify(checkboxArray[1].nativeElement.checked))
+    localStorage.setItem('checkboxHonorDat', JSON.stringify(checkboxArray[2].nativeElement.checked))
+    localStorage.setItem('checkboxCredAut', JSON.stringify(checkboxArray[3].nativeElement.checked))
+
+    //enviando dados de input de TEXTO pro localStorage
+    this.dataService.unclickableDataModal(allUserTextData)
+    localStorage.setItem('textUserData', JSON.stringify(allUserTextData))
+
+
     this.dialogRef.close();
   }
 

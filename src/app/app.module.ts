@@ -17,6 +17,7 @@ import { MatInputModule } from '@angular/material/input';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LeadModalComponent } from './lead-modal/lead-modal.component';
+import { ReadonlyModalComponent } from './readonly-modal/readonly-modal.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { LeadModalComponent } from './lead-modal/lead-modal.component';
     LoginComponent,
     SignUpComponent,
     MainComponent,
-    LeadModalComponent
+    LeadModalComponent,
+    ReadonlyModalComponent
   ],
   imports: [
     BrowserModule,

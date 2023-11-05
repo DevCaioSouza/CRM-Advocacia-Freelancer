@@ -10,6 +10,7 @@ import { LeadModalComponent } from '../lead-modal/lead-modal.component';
 import { DataService } from '../data.service';
 import { Board } from '../models/board.model';
 import { Column } from '../models/column.model';
+import { ReadonlyModalComponent } from '../readonly-modal/readonly-modal.component';
 
 @Component({
   selector: 'app-main',
@@ -73,8 +74,6 @@ export class MainComponent implements OnInit {
 
   }
 
-  //Parte das Colunas
-
   board: Board = new Board('Gerenciamento de Leads', [
     new Column('Cliente Potencial', []),
     new Column('Dados Confirmados', []),
@@ -98,11 +97,17 @@ export class MainComponent implements OnInit {
     }
   }
 
-
-
-  //Parte das colunas - Fim
-
   // ACIONAR O MODAL DE ADICIONAR LEAD
+
+  leadPreview(): void{
+    console.log('user clicked')
+    const dialogRef = this.dialog.open(ReadonlyModalComponent, {
+      width: '500px',
+      height: '500px',
+      panelClass: 'custom-modalbox',
+    });
+
+  }
 
   addLead(): void {
     const dialogRef = this.dialog.open(LeadModalComponent, {
