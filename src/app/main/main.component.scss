@@ -16,7 +16,19 @@
   width: 400px;
 }
 
-.btn {
+.lead-btn {
+  background-color: rgb(44, 128, 173);
+  color: white;
+  border-style: none;
+  border-radius: 3px;
+  padding: 6px 18px;
+  margin-top: 10px;
+  position: relative;
+  margin-left: 280px;
+  cursor: pointer;
+}
+
+.save-btn{
   background-color: rgb(44, 128, 173);
   color: white;
   border-style: none;

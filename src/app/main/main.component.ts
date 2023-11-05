@@ -25,43 +25,52 @@ export class MainComponent implements OnInit {
       this.board.columns[0].tasks.push(...getFirstColumnSession)
     }
 
+    const getSecondColumnSession = JSON.parse(localStorage.getItem('sessionSecondColumn')!)
+    if(getSecondColumnSession){
+      this.board.columns[1].tasks.push(...getSecondColumnSession)
+    }
+
+    const getThirdColumnSession = JSON.parse(localStorage.getItem('sessionThirdColumn')!)
+    if(getThirdColumnSession){
+      this.board.columns[2].tasks.push(...getThirdColumnSession)
+    }
+
+
     this._dataService.currentData.subscribe((data) => {
       const firstColumn = this.board.columns[0].tasks;
-      const secondColumn = this.board.columns[1].tasks;
-      const thirdColumn = this.board.columns[2].tasks;
 
       //esse if somente insere o dado vindo no modal na coluna do drag
+      //é o ponto de entrada da informação na view
       if (data !== '') {
         firstColumn.push(data);
-        // console.log(firstColumn);
-        localStorage.setItem('sessionFirstColumn', JSON.stringify(firstColumn))
-      }
-
-      if(secondColumn.length){
-        console.log('tem segunda coluna')
       }
 
     });
+  }
 
+  saveLeadsInfo(){
+    const firstColumn = this.board.columns[0].tasks;
+    const secondColumn = this.board.columns[1].tasks;
+    const thirdColumn = this.board.columns[2].tasks;
 
+    if(firstColumn.length){
+      localStorage.setItem('sessionFirstColumn', JSON.stringify(firstColumn))
+    } else {
+      localStorage.setItem('sessionFirstColumn', JSON.stringify(null))
+    }
 
+    if(secondColumn.length){
+      localStorage.setItem('sessionSecondColumn', JSON.stringify(secondColumn))
+    } else {
+      localStorage.setItem('sessionSecondColumn', JSON.stringify(null))
+    }
 
-    // if (localStorage.getItem('arrayOfLeads')) {
-    //   const storedUserName: string = JSON.parse(
-    //     localStorage.getItem('arrayOfLeads')!
-    //   );
+    if(thirdColumn.length){
+      localStorage.setItem('sessionThirdColumn', JSON.stringify(thirdColumn))
+    } else {
+      localStorage.setItem('sessionThirdColumn', JSON.stringify(null))
+    }
 
-    //   console.log(storedUserName)
-
-    //   for(let i = 0; i <= storedUserName.length; i++){
-    //     this.board.columns[0].tasks.splice(0, i, storedUserName)
-    //   }
-
-    //   // console.log(storedUserName);
-    //   // console.log(this.board.columns[0].tasks);
-
-    //   // this.board.columns[0].tasks.push(storedUserName);
-    // }
   }
 
   //Parte das Colunas

@@ -1,7 +1,7 @@
 <div class="main-container">
   <img src="../../../assets/JusCashBig.png" alt="JusCash Ícone" />
 
-  <button class="btn" (click)="addLead()">+ Novo Lead</button>
+  <button class="lead-btn" (click)="addLead()">+ Novo Lead</button>
 
   <div class="root">
     <div class="board">
@@ -36,40 +36,6 @@
     </div>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-  <!-- <div class="header">
-    <div class="box">
-      <h3>Cliente Potencial</h3>
-    </div>
-    <div class="box">
-      <h3>Dados Confirmados</h3>
-    </div>
-    <div class="box">
-      <h3>Análise do Lead</h3>
-    </div>
-  </div>
-
-  <div class="cdkTableContainer">
-
-    <div class="example-list"
-    cdkDropList
-    cdkDropListOrientation="horizontal"
-    class="example-list"
-    (cdkDropListDropped)="drop($event)">
-      <div class="example-box" *ngFor="let leadRole of leadRoles" cdkDrag>{{leadRole}}</div>
-    </div>
-
-  </div> -->
-
+  <div class="save-btn" (click)="saveLeadsInfo()">Salvar informações</div>
 
 </div>
