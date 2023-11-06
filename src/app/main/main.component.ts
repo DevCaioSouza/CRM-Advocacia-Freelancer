@@ -21,21 +21,26 @@ export class MainComponent implements OnInit {
   constructor(public dialog: MatDialog, private _dataService: DataService) {}
 
   ngOnInit() {
-    const getFirstColumnSession = JSON.parse(localStorage.getItem('sessionFirstColumn')!);
-    if(getFirstColumnSession){
-      this.board.columns[0].tasks.push(...getFirstColumnSession)
+    const getFirstColumnSession = JSON.parse(
+      localStorage.getItem('sessionFirstColumn')!
+    );
+    if (getFirstColumnSession) {
+      this.board.columns[0].tasks.push(...getFirstColumnSession);
     }
 
-    const getSecondColumnSession = JSON.parse(localStorage.getItem('sessionSecondColumn')!)
-    if(getSecondColumnSession){
-      this.board.columns[1].tasks.push(...getSecondColumnSession)
+    const getSecondColumnSession = JSON.parse(
+      localStorage.getItem('sessionSecondColumn')!
+    );
+    if (getSecondColumnSession) {
+      this.board.columns[1].tasks.push(...getSecondColumnSession);
     }
 
-    const getThirdColumnSession = JSON.parse(localStorage.getItem('sessionThirdColumn')!)
-    if(getThirdColumnSession){
-      this.board.columns[2].tasks.push(...getThirdColumnSession)
+    const getThirdColumnSession = JSON.parse(
+      localStorage.getItem('sessionThirdColumn')!
+    );
+    if (getThirdColumnSession) {
+      this.board.columns[2].tasks.push(...getThirdColumnSession);
     }
-
 
     this._dataService.currentData.subscribe((data) => {
       const firstColumn = this.board.columns[0].tasks;
@@ -45,33 +50,53 @@ export class MainComponent implements OnInit {
       if (data !== '') {
         firstColumn.push(data);
       }
-
     });
   }
 
-  saveLeadsInfo(){
+  saveLeadsInfo() {
     const firstColumn = this.board.columns[0].tasks;
     const secondColumn = this.board.columns[1].tasks;
     const thirdColumn = this.board.columns[2].tasks;
 
-    if(firstColumn.length){
-      localStorage.setItem('sessionFirstColumn', JSON.stringify(firstColumn))
+    if (firstColumn.length) {
+      localStorage.setItem('sessionFirstColumn', JSON.stringify(firstColumn));
     } else {
-      localStorage.setItem('sessionFirstColumn', JSON.stringify(null))
+      localStorage.setItem('sessionFirstColumn', JSON.stringify(null));
     }
 
-    if(secondColumn.length){
-      localStorage.setItem('sessionSecondColumn', JSON.stringify(secondColumn))
+    if (secondColumn.length) {
+      localStorage.setItem('sessionSecondColumn', JSON.stringify(secondColumn));
     } else {
-      localStorage.setItem('sessionSecondColumn', JSON.stringify(null))
+      localStorage.setItem('sessionSecondColumn', JSON.stringify(null));
     }
 
-    if(thirdColumn.length){
-      localStorage.setItem('sessionThirdColumn', JSON.stringify(thirdColumn))
+    if (thirdColumn.length) {
+      localStorage.setItem('sessionThirdColumn', JSON.stringify(thirdColumn));
     } else {
-      localStorage.setItem('sessionThirdColumn', JSON.stringify(null))
+      localStorage.setItem('sessionThirdColumn', JSON.stringify(null));
     }
 
+    this._dataService.currentUnclickableData.subscribe((data) => {
+      if (data !== '') {
+        const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
+
+        const arrayOfUserDataStored = [];
+        const allUserData = data
+
+        if (parsedStorage == null) {
+          arrayOfUserDataStored.push();
+        } else {
+          arrayOfUserDataStored.push(...parsedStorage);
+        }
+
+        arrayOfUserDataStored.push(allUserData);
+
+        localStorage.setItem(
+          'textUserData',
+          JSON.stringify(arrayOfUserDataStored)
+        );
+      }
+    });
   }
 
   board: Board = new Board('Gerenciamento de Leads', [
@@ -99,14 +124,13 @@ export class MainComponent implements OnInit {
 
   // ACIONAR O MODAL DE ADICIONAR LEAD
 
-  leadPreview(): void{
-    console.log('user clicked')
+  leadPreview(): void {
+    console.log('user clicked');
     const dialogRef = this.dialog.open(ReadonlyModalComponent, {
       width: '500px',
       height: '500px',
       panelClass: 'custom-modalbox',
     });
-
   }
 
   addLead(): void {

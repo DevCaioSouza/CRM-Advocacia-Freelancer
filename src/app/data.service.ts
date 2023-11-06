@@ -14,18 +14,13 @@ export class DataService {
     this.data.next(data);
   }
 
-
-
   //Unclickable modal props
 
   private unclickableData = new BehaviorSubject('');
-  currentUnclickableData = this.unclickableData.asObservable()
+  currentUnclickableData = this.unclickableData.asObservable();
 
-  unclickableDataModal(userTextData: any){
-    console.log(userTextData)
-    this.unclickableData.next(userTextData)
-
-    // const unclickableArray = [...userNameData, ...userEmailData, ...userPhoneData]
-    // this.data.next(...unclickableArray)
+  unclickableDataModal(userAllInputsData: any) {
+    console.log(userAllInputsData);
+    this.unclickableData.next(userAllInputsData);
   }
 }
