@@ -66,18 +66,32 @@ export class LeadModalComponent {
       checkBoxFiveValue,
     ];
 
-    this.getAllEmails();
+    this._dataService.setData(userName);
 
-    const checkIfEmailExists = this.arr.filter(element => element == userEmail)
+    const parsedData = JSON.parse(localStorage.getItem('textUserData')!);
+    // console.log(parsedData)
 
-    console.log(checkIfEmailExists)
+    const userData = [allUserData]
 
-    if(checkIfEmailExists.length){
-      alert('E-mail já cadastrado')
-      return
+    if(parsedData !== null){
+      userData.push(...parsedData);
     }
 
-    this._dataService.setData(userEmail);
+
+    console.log(userData)
+
+    localStorage.setItem('textUserData', JSON.stringify(userData));
+
+    // this.getAllEmails();
+
+    // const checkIfEmailExists = this.arr.filter(element => element == userEmail)
+
+    // console.log(checkIfEmailExists)
+
+    // if(checkIfEmailExists.length){
+    //   alert('E-mail já cadastrado')
+    //   return
+    // }
 
     this.dialogRef.close();
   }
@@ -89,7 +103,7 @@ export class LeadModalComponent {
       const emailsDeUsuarios = parsedStorage[i][1];
       this.arr.push(emailsDeUsuarios);
     }
-    console.log(this.arr);
+    // console.log(this.arr);
   }
 
   changeCheckBoxValue(event: any) {
