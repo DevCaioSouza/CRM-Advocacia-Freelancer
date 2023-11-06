@@ -15,13 +15,13 @@ Utilize o botão "Salvar informações" para salvar os dados do cliente<br>
 
 2 - no terminal execute o comando "ng serve", o projeto deve rodar em http://localhost:4200/
 
-Página de login: http://localhost:4200/login
+Página de login: http://localhost:4200/#/login
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/62df00ba-dd38-4143-b96d-cef718d140a7)
 
-Página de Registro: http://localhost:4200/sign-up
+Página de Registro: http://localhost:4200/#/sign-up
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/f71a84bd-db82-4d17-ba00-52303f389816)
 
-Página principal: http://localhost:4200/main
+Página principal: http://localhost:4200/#/main
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/8a6752db-1360-4e47-bdbc-c88e9410b7f5)
 
 ## CRITÉRIOS DE ACEITE NÃO IMPLEMENTADOS ATÉ O MOMENTO <br>
