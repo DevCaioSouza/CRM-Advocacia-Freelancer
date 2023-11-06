@@ -1,4 +1,4 @@
-.login-container{
+.login-container {
   background-color: #e7e7e7;
   border-radius: 3px;
   display: flex;
@@ -10,12 +10,12 @@
   transform: translate(0%, 50%);
 }
 
-.form h3{
+.form h3 {
   margin-top: 30px;
   text-align: center;
 }
 
-.form-group{
+.form-group {
   font-size: 12px;
   font-weight: bold;
   color: blue;
@@ -24,7 +24,7 @@
   margin: 20px 0;
 }
 
-.form-group input{
+.form-group input {
   border: 1px solid black;
   border-radius: 3px;
   margin-top: 5px;
@@ -37,13 +37,13 @@
   text-align: end;
 }
 
-.redirect-signup a{
-  color: #4067D1;
+.redirect-signup a {
+  color: #4067d1;
   text-decoration: none;
 }
 
-.form input[type=submit]{
-  background-color: #2BC61D;
+.form input[type="submit"] {
+  background-color: #2bc61d;
   color: #fff;
   font-weight: bold;
   border-style: none;
@@ -52,4 +52,14 @@
   display: flex;
   justify-content: center;
   margin: 0 auto;
+}
+
+.eye-icon {
+  color: black;
+  width: 13px;
+  position: relative;
+  bottom: 18px;
+  margin-bottom: -14px;
+  left: 285px;
+  cursor: pointer;
 }

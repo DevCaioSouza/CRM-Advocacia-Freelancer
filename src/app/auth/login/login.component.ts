@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  visible: boolean = false
 
+  changeIcon(){
+    this.visible = !this.visible
+  }
 }
