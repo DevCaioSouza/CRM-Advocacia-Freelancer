@@ -12,12 +12,18 @@ import { Board } from '../models/board.model';
 import { Column } from '../models/column.model';
 import { ReadonlyModalComponent } from '../readonly-modal/readonly-modal.component';
 
+export interface User{
+  name: string,
+  email: string
+}
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
+
 export class MainComponent implements OnInit {
+
   constructor(public dialog: MatDialog, private _dataService: DataService) {}
 
   ngOnInit() {
@@ -139,9 +145,5 @@ export class MainComponent implements OnInit {
       height: '500px',
       panelClass: 'custom-modalbox',
     });
-
-    // dialogRef.afterClosed().subscribe((result) => {
-    //   console.log('Dialog was closed');
-    // });
   }
 }

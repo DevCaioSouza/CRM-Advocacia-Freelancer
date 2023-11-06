@@ -50,6 +50,11 @@ export class SignUpComponent {
     const passwordInput = this.passwordRef.nativeElement.value;
     const confirmPasswordInput = this.confirmPasswordRef.nativeElement.value;
 
+    if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
+      this.openSnackBar('Preencha os campos obrigatórios', 'X');
+      return
+    }
+
     if(!passwordInput.match('(.*[0-9].*)')){
       alert('Senha deve conter ao menos um número')
       return
@@ -63,11 +68,6 @@ export class SignUpComponent {
 
     if (passwordInput != confirmPasswordInput) {
       this.openSnackBar('Confirmação de senha incorreta', 'X');
-      return
-    }
-
-    if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
-      this.openSnackBar('Preencha os campos obrigatórios', 'X');
       return
     }
 
