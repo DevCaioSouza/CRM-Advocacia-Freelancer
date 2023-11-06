@@ -18,6 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LeadModalComponent } from './lead-modal/lead-modal.component';
 import { ReadonlyModalComponent } from './readonly-modal/readonly-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { ReadonlyModalComponent } from './readonly-modal/readonly-modal.componen
     MatSnackBarModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -50,12 +50,32 @@ export class SignUpComponent {
     const passwordInput = this.passwordRef.nativeElement.value;
     const confirmPasswordInput = this.confirmPasswordRef.nativeElement.value;
 
+    if(!passwordInput.match('(.*[0-9].*)')){
+      alert('Senha deve conter ao menos um número')
+      return
+    } else if(!passwordInput.match('(?=.*[!@#$%^&*;])')){
+      alert('Senha deve conter pelo menos um caracter especial')
+      return
+    } else if(!passwordInput.match('.{8,}')){
+      alert('Senha deve conter no mínimo 8 dígitos')
+      return
+    }
+
     if (passwordInput != confirmPasswordInput) {
       this.openSnackBar('Confirmação de senha incorreta', 'X');
+      return
     }
 
     if (!nameInput || !emailInput || !passwordInput || !confirmPasswordInput) {
       this.openSnackBar('Preencha os campos obrigatórios', 'X');
+      return
     }
+
+    this.openSnackBar('Usuário criado com sucesso, redirecionando', 'X')
+
+    setTimeout(() => {
+      window.location.href = 'login'
+    }, 5000);
+
   }
 }
