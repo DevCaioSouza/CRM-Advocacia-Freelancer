@@ -66,7 +66,7 @@ export class LeadModalComponent {
       checkBoxFiveValue,
     ];
 
-    this._dataService.setData(userName);
+    // this._dataService.setData(userName);
 
     const parsedData = JSON.parse(localStorage.getItem('textUserData')!);
     // console.log(parsedData)
@@ -77,21 +77,25 @@ export class LeadModalComponent {
       userData.push(...parsedData);
     }
 
+    // localStorage.setItem('textUserData', JSON.stringify(userData));
 
-    console.log(userData)
+    //NOVO BLOCO
 
+    this.getAllEmails();
+
+    const checkIfEmailExists = this.arr.filter(element => element == userEmail)
+
+    console.log(checkIfEmailExists)
+
+    if(checkIfEmailExists.length){
+      alert('E-mail já cadastrado')
+      return
+    }
+
+    this._dataService.setData(userName);
     localStorage.setItem('textUserData', JSON.stringify(userData));
 
-    // this.getAllEmails();
-
-    // const checkIfEmailExists = this.arr.filter(element => element == userEmail)
-
-    // console.log(checkIfEmailExists)
-
-    // if(checkIfEmailExists.length){
-    //   alert('E-mail já cadastrado')
-    //   return
-    // }
+    //FIM DO NOVO BLOCO
 
     this.dialogRef.close();
   }
@@ -99,11 +103,13 @@ export class LeadModalComponent {
   getAllEmails() {
     const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
 
-    for (let i = 0; i < parsedStorage.length; i++) {
-      const emailsDeUsuarios = parsedStorage[i][1];
-      this.arr.push(emailsDeUsuarios);
+    if(parsedStorage !== null){
+      for (let i = 0; i < parsedStorage.length; i++) {
+        const emailsDeUsuarios = parsedStorage[i][1];
+        this.arr.push(emailsDeUsuarios);
+      }
     }
-    // console.log(this.arr);
+    console.log(this.arr);
   }
 
   changeCheckBoxValue(event: any) {
