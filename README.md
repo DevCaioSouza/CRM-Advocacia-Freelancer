@@ -22,8 +22,6 @@ Todos os critérios de aceite da atividade foram atendidos, exceto por 2 apenas:
 1 - Evitar que o usuário seja retornado a coluna anterior <br>
 2 - Passar as informações corretas para o modal de visualização de dados do usuário <br>
 
-Ambos poderiam ter sido entregues, mas não consegui implementá-los a tempo. É um projeto de complexidade considerável visto a combinação de técnicas exigidas.
-
 ##
 ##
 ## INSTRUÇÕES PADRÃO DO REPOSITÓRIO - FORNECIDAS AUTOMATICAMENTE (Preferi deixar caso precisem de algum dado)
