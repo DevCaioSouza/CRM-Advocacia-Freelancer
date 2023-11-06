@@ -3,7 +3,13 @@
 Este repositório guarda um projeto feito em Angular, visando atender aos critérios de aceite estabelecidos pelo processo seletivo
 
 ## COMO VISUALIZAR E TESTAR:
+1 - O site está em deploy no netlify, as páginas:
+https://angular-crm.netlify.app/#/login - Página de login <br>
+https://angular-crm.netlify.app/#/sign-up - Página de cadastro <br> 
+https://angular-crm.netlify.app/#/main - página principal <br>
+As funcionalidades dependentes de localstorage funcionam no deploy <br>
 
+## COMO CLONAR O PROJETO
 1 - clone o repositório do projeto em sua máquina: https://github.com/DevCaioSouza/Desafio-JusCash
 
 2 - no terminal execute o comando "ng serve", o projeto deve rodar em http://localhost:4200/
