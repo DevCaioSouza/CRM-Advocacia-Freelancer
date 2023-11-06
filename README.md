@@ -17,8 +17,15 @@ Página de Registro: http://localhost:4200/sign-up
 Página principal: http://localhost:4200/main
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/8a6752db-1360-4e47-bdbc-c88e9410b7f5)
 
+##CRITÉRIOS DE ACEITE NÃO IMPLEMENTADOS ATÉ O MOMENTO
+Todos os critérios de aceite da atividade foram atendidos, exceto por 2 apenas: <br>
+1 - Evitar que o usuário seja retornado a coluna anterior
+2 - Passar as informações corretas para o modal de visualização de dados do usuário <br>
 
+Ambos poderiam ter sido entregues, mas não consegui implementá-los a tempo. É um projeto de complexidade considerável visto a combinação de técnicas exigidas.
 
+##
+##
 ## INSTRUÇÕES PADRÃO DO REPOSITÓRIO - FORNECIDAS AUTOMATICAMENTE (Preferi deixar caso precisem de algum dado)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.9.
