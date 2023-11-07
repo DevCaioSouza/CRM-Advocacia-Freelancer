@@ -13,6 +13,8 @@ Utilize o botão "Salvar informações" para salvar os dados do cliente<br>
 ## COMO CLONAR O PROJETO
 1 - clone o repositório do projeto em sua máquina: https://github.com/DevCaioSouza/Desafio-JusCash
 
+2 - Instale o CLI do angular, para poder rodar comandos, com "npm i @angular/cli"
+
 2 - no terminal execute o comando "ng serve", o projeto deve rodar em http://localhost:4200/
 
 Página de login: http://localhost:4200/#/login
