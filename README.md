@@ -3,7 +3,7 @@
 Este repositório guarda um projeto feito em Angular, visando atender aos critérios de aceite estabelecidos pelo processo seletivo
 
 ## COMO VISUALIZAR E TESTAR:
-1 - O site está em deploy no netlify, as páginas: <br>
+1 - O site está em deploy no netlify com integração contínua direto desse repositório, as páginas: <br>
 https://angular-crm.netlify.app/#/login - Página de login <br>
 https://angular-crm.netlify.app/#/sign-up - Página de cadastro <br> 
 https://angular-crm.netlify.app/#/main - página principal <br>
