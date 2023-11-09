@@ -3,7 +3,7 @@
 Este repositório guarda um projeto feito em Angular, visando atender aos critérios de aceite estabelecidos pelo processo seletivo
 
 ## COMO VISUALIZAR E TESTAR:
-1 - O site está em deploy no netlify, as páginas: <br>
+1 - O site está em deploy no netlify com integração contínua direto desse repositório, as páginas: <br>
 https://angular-crm.netlify.app/#/login - Página de login <br>
 https://angular-crm.netlify.app/#/sign-up - Página de cadastro <br> 
 https://angular-crm.netlify.app/#/main - página principal <br>
@@ -13,15 +13,17 @@ Utilize o botão "Salvar informações" para salvar os dados do cliente<br>
 ## COMO CLONAR O PROJETO
 1 - clone o repositório do projeto em sua máquina: https://github.com/DevCaioSouza/Desafio-JusCash
 
-2 - no terminal execute o comando "ng serve", o projeto deve rodar em http://localhost:4200/
+2 - Instale o CLI do angular, para poder rodar comandos, com "npm i @angular/cli"
 
-Página de login: http://localhost:4200/login
+3 - no terminal execute o comando "ng serve", o projeto deve rodar em http://localhost:4200/
+
+Página de login: http://localhost:4200/#/login
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/62df00ba-dd38-4143-b96d-cef718d140a7)
 
-Página de Registro: http://localhost:4200/sign-up
+Página de Registro: http://localhost:4200/#/sign-up
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/f71a84bd-db82-4d17-ba00-52303f389816)
 
-Página principal: http://localhost:4200/main
+Página principal: http://localhost:4200/#/main
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/8a6752db-1360-4e47-bdbc-c88e9410b7f5)
 
 ## CRITÉRIOS DE ACEITE NÃO IMPLEMENTADOS ATÉ O MOMENTO <br>
