@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
 
 import {
   CdkDragDrop,
@@ -18,6 +18,9 @@ import { User } from '../interfaces/User';
   styleUrls: ['./main.component.scss'],
 })
 export class MainComponent implements OnInit {
+  @ViewChildren('clickedBox')
+  clickedBoxRef!: ElementRef;
+
   constructor(public dialog: MatDialog, private _dataService: DataService) {}
 
   userDataArray: any[] = [];
@@ -75,7 +78,7 @@ export class MainComponent implements OnInit {
       this.userDataArray.push(...parsedUserDataList);
     }
 
-    localStorage.setItem('userDataList', JSON.stringify(this.userDataArray))
+    localStorage.setItem('userDataList', JSON.stringify(this.userDataArray));
 
     const firstColumn = this.board.columns[0].tasks;
     const secondColumn = this.board.columns[1].tasks;
@@ -147,13 +150,13 @@ export class MainComponent implements OnInit {
 
   // ACIONAR O MODAL DE ADICIONAR LEAD
 
-  leadPreview(): void {
-    console.log('user clicked');
-    const dialogRef = this.dialog.open(ReadonlyModalComponent, {
-      width: '500px',
-      height: '500px',
-      panelClass: 'custom-modalbox',
-    });
+  leadPreview(clicked: any): void {
+    console.log('user clicked', clicked);
+    // const dialogRef = this.dialog.open(ReadonlyModalComponent, {
+    //   width: '500px',
+    //   height: '500px',
+    //   panelClass: 'custom-modalbox',
+    // });
   }
 
   addLead(): void {

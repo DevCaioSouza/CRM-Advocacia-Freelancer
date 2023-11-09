@@ -23,8 +23,9 @@
             cdkDropList
             [cdkDropListData]="column.tasks"
             (cdkDropListDropped)="drop($event)">
-              <div class="task" *ngFor="let item of column.tasks" cdkDrag (click)="leadPreview()" #clickedBox>
-                {{ item.name }} <span class="hidden">, {{item.email}}</span>
+              <div class="task" *ngFor="let item of column.tasks" cdkDrag  (click)="leadPreview(clickedBox.innerHTML)" >
+                  {{item.name}}
+                  <span class="hidden" #clickedBox>{{item.email}}</span>
               </div>
             </div>
           </div>
