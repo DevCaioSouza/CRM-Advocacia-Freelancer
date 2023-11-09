@@ -11,20 +11,16 @@ import { DataService } from '../data.service';
 import { Board } from '../models/board.model';
 import { Column } from '../models/column.model';
 import { ReadonlyModalComponent } from '../readonly-modal/readonly-modal.component';
-
-export interface User{
-  name: string,
-  email: string
-}
+import { User } from '../interfaces/User';
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-
 export class MainComponent implements OnInit {
-
   constructor(public dialog: MatDialog, private _dataService: DataService) {}
+
+  userDataArray: any[] = [];
 
   ngOnInit() {
     const getFirstColumnSession = JSON.parse(
@@ -53,13 +49,29 @@ export class MainComponent implements OnInit {
 
       //esse if somente insere o dado vindo no modal na coluna do drag
       //é o ponto de entrada da informação na view
-      if (data !== '') {
-        firstColumn.push(data);
+
+      // if (data !== ({name: '', email: ''})) {
+      //   firstColumn.push({name: data.name, email: data.email});
+      // }
+
+      if (data !== null) {
+        JSON.parse(localStorage.getItem('userDataList')!)
+
+        const userData: User = { name: data.name, email: data.email };
+        this.userDataArray.push({name: userData.name, email: userData.email})
+
+        if(userData.name !== ''){
+          firstColumn.push(userData);
+          console.log(userData)
+          console.log('firstColumn: ',firstColumn)
+        }
       }
     });
   }
 
   saveLeadsInfo() {
+    localStorage.setItem('userDataList', JSON.stringify(this.userDataArray));
+
     const firstColumn = this.board.columns[0].tasks;
     const secondColumn = this.board.columns[1].tasks;
     const thirdColumn = this.board.columns[2].tasks;
@@ -87,7 +99,7 @@ export class MainComponent implements OnInit {
         const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
 
         const arrayOfUserDataStored = [];
-        const allUserData = data
+        const allUserData = data;
 
         if (parsedStorage == null) {
           arrayOfUserDataStored.push();

@@ -9,6 +9,8 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { User } from '../interfaces/User';
+//criar interface de User => criar uma propriedade com esse formato
 
 @Component({
   selector: 'app-lead-modal',
@@ -40,9 +42,9 @@ export class LeadModalComponent {
   ) {}
 
   saveLeadData(): void {
-    const userName = this.usernameElement.nativeElement.value;
-    const userEmail = this.userEmailElement.nativeElement.value;
-    const userPhoneNumber = this.userPhoneNumberElement.nativeElement.value;
+    const userName: string = this.usernameElement.nativeElement.value;
+    const userEmail: string = this.userEmailElement.nativeElement.value;
+    const userPhoneNumber: string = this.userPhoneNumberElement.nativeElement.value;
 
     //Lidando com os dados de input do Checkbox
 
@@ -66,33 +68,34 @@ export class LeadModalComponent {
       checkBoxFiveValue,
     ];
 
-    // this._dataService.setData(userName);
+    const user: User = {
+      name: userName,
+      email: userEmail,
+    };
 
     const parsedData = JSON.parse(localStorage.getItem('textUserData')!);
-    // console.log(parsedData)
 
-    const userData = [allUserData]
+    const userData = [allUserData];
 
-    if(parsedData !== null){
+    if (parsedData !== null) {
       userData.push(...parsedData);
     }
 
-    // localStorage.setItem('textUserData', JSON.stringify(userData));
-
-    //NOVO BLOCO
-
     this.getAllEmails();
 
-    const checkIfEmailExists = this.arr.filter(element => element == userEmail)
+    const checkIfEmailExists = this.arr.filter(
+      (element) => element == userEmail
+    );
 
-    console.log(checkIfEmailExists)
+    console.log(checkIfEmailExists);
 
-    if(checkIfEmailExists.length){
-      alert('E-mail já cadastrado')
-      return
+    if (checkIfEmailExists.length) {
+      alert('E-mail já cadastrado');
+      return;
     }
 
-    this._dataService.setData(userName);
+    this._dataService.setData(user);
+    // this._dataService.setData(userName);
     localStorage.setItem('textUserData', JSON.stringify(userData));
 
     //FIM DO NOVO BLOCO
@@ -101,15 +104,18 @@ export class LeadModalComponent {
   }
 
   getAllEmails() {
-    const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
+    // const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
+    const parsedStorage = JSON.parse(localStorage.getItem('userDataList')!);
 
-    if(parsedStorage !== null){
+    if (parsedStorage !== null) {
       for (let i = 0; i < parsedStorage.length; i++) {
-        const emailsDeUsuarios = parsedStorage[i][1];
+        // console.log('parsedStorage = ',parsedStorage)
+        const emailsDeUsuarios = parsedStorage[i].email;
+        console.log('emailsDeUsuarios :', emailsDeUsuarios)
         this.arr.push(emailsDeUsuarios);
       }
     }
-    console.log(this.arr);
+    // console.log(this.arr);
   }
 
   changeCheckBoxValue(event: any) {
