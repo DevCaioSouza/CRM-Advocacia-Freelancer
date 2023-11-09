@@ -55,22 +55,27 @@ export class MainComponent implements OnInit {
       // }
 
       if (data !== null) {
-        JSON.parse(localStorage.getItem('userDataList')!)
-
         const userData: User = { name: data.name, email: data.email };
-        this.userDataArray.push({name: userData.name, email: userData.email})
+        this.userDataArray.push({ name: userData.name, email: userData.email });
 
-        if(userData.name !== ''){
+        if (userData.name !== '') {
           firstColumn.push(userData);
-          console.log(userData)
-          console.log('firstColumn: ',firstColumn)
+          console.log(userData);
+          console.log('firstColumn: ', firstColumn);
         }
       }
     });
   }
 
   saveLeadsInfo() {
-    localStorage.setItem('userDataList', JSON.stringify(this.userDataArray));
+    const parsedUserDataList = JSON.parse(
+      localStorage.getItem('userDataList')!
+    );
+    if (parsedUserDataList) {
+      this.userDataArray.push(...parsedUserDataList);
+    }
+
+    localStorage.setItem('userDataList', JSON.stringify(this.userDataArray))
 
     const firstColumn = this.board.columns[0].tasks;
     const secondColumn = this.board.columns[1].tasks;

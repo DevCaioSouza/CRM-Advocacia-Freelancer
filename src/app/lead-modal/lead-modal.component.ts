@@ -104,12 +104,10 @@ export class LeadModalComponent {
   }
 
   getAllEmails() {
-    // const parsedStorage = JSON.parse(localStorage.getItem('textUserData')!);
     const parsedStorage = JSON.parse(localStorage.getItem('userDataList')!);
 
     if (parsedStorage !== null) {
       for (let i = 0; i < parsedStorage.length; i++) {
-        // console.log('parsedStorage = ',parsedStorage)
         const emailsDeUsuarios = parsedStorage[i].email;
         console.log('emailsDeUsuarios :', emailsDeUsuarios)
         this.arr.push(emailsDeUsuarios);
