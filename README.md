@@ -27,9 +27,8 @@ Página principal: http://localhost:4200/#/main
 ![image](https://github.com/DevCaioSouza/Desafio-JusCash/assets/84105396/8a6752db-1360-4e47-bdbc-c88e9410b7f5)
 
 ## CRITÉRIOS DE ACEITE NÃO IMPLEMENTADOS ATÉ O MOMENTO <br>
-Todos os critérios de aceite da atividade foram atendidos, exceto por 2 apenas: <br>
+Todos os critérios de aceite da atividade foram atendidos, exceto por 1 apenas: <br>
 1 - Evitar que o usuário seja retornado a coluna anterior <br>
-2 - Passar as informações corretas para o modal de visualização de dados do usuário <br>
 
 ##
 ##
