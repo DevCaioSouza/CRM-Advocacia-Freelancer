@@ -9,6 +9,7 @@ import {
 import { MatDialogRef } from '@angular/material/dialog';
 import { DataService } from '../data.service';
 import { LeadModalComponent } from '../lead-modal/lead-modal.component';
+import { elementAt, filter } from 'rxjs';
 
 @Component({
   selector: 'app-readonly-modal',
@@ -22,22 +23,49 @@ export class ReadonlyModalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.checkAutor);
+    this._dataService.currentEmailData.subscribe((data) => {
+      this.clickedUserEmail = data;
+      this.verifyUser(this.clickedUserEmail)
+    });
+    this.userName = this.userFullData[0][0]
+    this.userEmail = this.userFullData[0][1]
+    this.userPhoneNumber = this.userFullData[0][2]
+
+    this.checkTodos = this.userFullData[0][3]
+    this.checkSucumbenciais = this.userFullData[0][4]
+    this.checkContratuais = this.userFullData[0][5]
+    this.checkDativos = this.userFullData[0][6]
+    this.checkAutor = this.userFullData[0][7]
   }
 
-  userTextData = JSON.parse(localStorage.getItem('textUserData')!);
+  public userTextData = JSON.parse(localStorage.getItem('textUserData')!);
+
+  public clickedUserEmail: string = '';
+
+  public userFullData: any[] = [];
+  //pra popular userFullData provavelmente será um spread, pois já é um array vazio
+
+  verifyUser(clickedUser: string) {
+    for(let i = 0; i < this.userTextData.length; i++){
 
 
+      if(clickedUser === this.userTextData[i][1]){
+        const arrayTest = this.userTextData[i]
+        this.userFullData.push(arrayTest)
+        return
+      }
+    }
+  }
 
-  userName: string = this.userTextData[0][0];
-  userEmail: string = this.userTextData[0][1];
-  userPhoneNumber: string = this.userTextData[0][2];
+  userName: string = ''
+  userEmail: string = ''
+  userPhoneNumber: string = ''
 
-  checkTodos: boolean = this.userTextData[0][3];
-  checkSucumbenciais: boolean = this.userTextData[0][4];
-  checkContratuais: boolean = this.userTextData[0][5];
-  checkDativos: boolean = this.userTextData[0][6];
-  checkAutor: boolean = this.userTextData[0][7];
+  checkTodos!: boolean;
+  checkSucumbenciais!: boolean;
+  checkContratuais!: boolean;
+  checkDativos!: boolean;
+  checkAutor!: boolean;
 
   cancel(): void {
     this.dialogRef.close();

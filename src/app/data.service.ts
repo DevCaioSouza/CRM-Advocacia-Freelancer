@@ -18,12 +18,12 @@ export class DataService {
   }
 
   //Props de dados de email
-  // private emailData = new BehaviorSubject('');
-  // currentEmailData = this.emailData.asObservable()
+  private emailData = new BehaviorSubject('');
+  currentEmailData = this.emailData.asObservable()
 
-  // setEmailData(dataEmail: any){
-  //   this.emailData.next(dataEmail)
-  // }
+  setEmailData(dataEmail: any){
+    this.emailData.next(dataEmail)
+  }
 
 
   //Unclickable modal props

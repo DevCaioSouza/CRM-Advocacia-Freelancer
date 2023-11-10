@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, ViewChild, ViewChildren } from '@angular/core';
 
 import {
   CdkDragDrop,
@@ -152,11 +152,12 @@ export class MainComponent implements OnInit {
 
   leadPreview(clicked: any): void {
     console.log('user clicked', clicked);
-    // const dialogRef = this.dialog.open(ReadonlyModalComponent, {
-    //   width: '500px',
-    //   height: '500px',
-    //   panelClass: 'custom-modalbox',
-    // });
+    this._dataService.setEmailData(clicked)
+    const dialogRef = this.dialog.open(ReadonlyModalComponent, {
+      width: '500px',
+      height: '500px',
+      panelClass: 'custom-modalbox',
+    });
   }
 
   addLead(): void {
