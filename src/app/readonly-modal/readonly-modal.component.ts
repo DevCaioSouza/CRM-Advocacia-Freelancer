@@ -43,7 +43,6 @@ export class ReadonlyModalComponent implements OnInit {
   public clickedUserEmail: string = '';
 
   public userFullData: any[] = [];
-  //pra popular userFullData provavelmente será um spread, pois já é um array vazio
 
   verifyUser(clickedUser: string) {
     for(let i = 0; i < this.userTextData.length; i++){

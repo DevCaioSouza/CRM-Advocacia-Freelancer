@@ -1,4 +1,11 @@
-import { Component, ElementRef, EventEmitter, OnInit, ViewChild, ViewChildren } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  OnInit,
+  ViewChild,
+  ViewChildren,
+} from '@angular/core';
 
 import {
   CdkDragDrop,
@@ -26,6 +33,8 @@ export class MainComponent implements OnInit {
   userDataArray: any[] = [];
 
   ngOnInit() {
+    console.log('first array: ', this.arrayIndex);
+
     const getFirstColumnSession = JSON.parse(
       localStorage.getItem('sessionFirstColumn')!
     );
@@ -131,13 +140,24 @@ export class MainComponent implements OnInit {
     new Column('Análise do Lead', []),
   ]);
 
+  public dropFirstArray: any = this.board.columns[0].name;
+  public dropSecondArray: any = this.board.columns[1].name;
+  public dropThirdArray: any = this.board.columns[2].name;
+
+  public arrayIndex: any[] = [];
+
   drop(event: CdkDragDrop<string[]>) {
+    if(event.previousContainer.id > event.container.id){
+      alert('Não é possível retornar o lead ao estado anterior')
+      return
+    }
+
     if (event.previousContainer === event.container) {
       moveItemInArray(
         event.container.data,
         event.previousIndex,
         event.currentIndex
-      );
+      )
     } else {
       transferArrayItem(
         event.previousContainer.data,
@@ -152,7 +172,7 @@ export class MainComponent implements OnInit {
 
   leadPreview(clicked: any): void {
     console.log('user clicked', clicked);
-    this._dataService.setEmailData(clicked)
+    this._dataService.setEmailData(clicked);
     const dialogRef = this.dialog.open(ReadonlyModalComponent, {
       width: '500px',
       height: '500px',
