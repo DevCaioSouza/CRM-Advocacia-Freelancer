@@ -1,7 +1,6 @@
-# Projeto - Desafio JusCash Fullstack
+# Projeto - CRM P/ escritório de Advocacia
 
-Este repositório guarda um projeto feito em Angular, visando atender aos critérios de aceite estabelecidos pelo processo seletivo<br>
-IMPORTANTE: Todos os critérios de aceite estabelecidos na avaliação foram atendidos.<br>
+## Este é um projeto feito com Angular (versão 16)
 
 ## COMO VISUALIZAR E TESTAR:
 1 - O site está em deploy no netlify com integração contínua direto desse repositório, as páginas: <br>
