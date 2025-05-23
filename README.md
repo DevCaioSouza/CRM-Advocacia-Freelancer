@@ -4,9 +4,9 @@
 
 ## COMO VISUALIZAR E TESTAR:
 1 - O site está em deploy no netlify com integração contínua direto desse repositório, as páginas: <br>
-https://angular-crm.netlify.app/#/login - Página de login <br>
-https://angular-crm.netlify.app/#/sign-up - Página de cadastro <br> 
-https://angular-crm.netlify.app/#/main - página principal <br>
+https://desafio-crm-juscash.netlify.app/#/login - Página de login <br>
+https://desafio-crm-juscash.netlify.app/#/sign-up - Página de cadastro <br> 
+https://desafio-crm-juscash.netlify.app/#/main - página principal <br>
 As funcionalidades dependentes de localstorage funcionam no deploy <br>
 Utilize o botão "Salvar informações" para salvar os dados do cliente<br>
 
