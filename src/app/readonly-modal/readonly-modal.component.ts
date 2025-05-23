@@ -12,9 +12,10 @@ import { LeadModalComponent } from '../lead-modal/lead-modal.component';
 import { elementAt, filter } from 'rxjs';
 
 @Component({
-  selector: 'app-readonly-modal',
-  templateUrl: './readonly-modal.component.html',
-  styleUrls: ['./readonly-modal.component.scss'],
+    selector: 'app-readonly-modal',
+    templateUrl: './readonly-modal.component.html',
+    styleUrls: ['./readonly-modal.component.scss'],
+    standalone: false
 })
 export class ReadonlyModalComponent implements OnInit {
   constructor(

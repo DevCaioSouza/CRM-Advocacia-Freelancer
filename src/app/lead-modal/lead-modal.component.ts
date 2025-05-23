@@ -13,9 +13,10 @@ import { User } from '../interfaces/User';
 //criar interface de User => criar uma propriedade com esse formato
 
 @Component({
-  selector: 'app-lead-modal',
-  templateUrl: './lead-modal.component.html',
-  styleUrls: ['./lead-modal.component.scss'],
+    selector: 'app-lead-modal',
+    templateUrl: './lead-modal.component.html',
+    styleUrls: ['./lead-modal.component.scss'],
+    standalone: false
 })
 export class LeadModalComponent {
   @ViewChild('selectAllBoxes')
