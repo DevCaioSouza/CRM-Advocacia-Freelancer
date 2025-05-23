@@ -66,10 +66,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "juscash-projeto:build:production"
+              "buildTarget": "juscash-projeto:build:production"
             },
             "development": {
-              "browserTarget": "juscash-projeto:build:development"
+              "buildTarget": "juscash-projeto:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -77,7 +77,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "juscash-projeto:build"
+            "buildTarget": "juscash-projeto:build"
           }
         },
         "test": {
