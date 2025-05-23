@@ -19,6 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LeadModalComponent } from './lead-modal/lead-modal.component';
 import { ReadonlyModalComponent } from './readonly-modal/readonly-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     SignUpComponent,
     MainComponent,
     LeadModalComponent,
-    ReadonlyModalComponent
+    ReadonlyModalComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
