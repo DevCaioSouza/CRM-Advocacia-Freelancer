@@ -171,10 +171,10 @@ export class MainComponent implements OnInit {
 
   // ACIONAR O MODAL DE ADICIONAR LEAD
 
-  leadPreview(clicked: any): void {
+  leadPreview(clicked: string): void {
     console.log('user clicked', clicked);
     this._dataService.setEmailData(clicked);
-    const dialogRef = this.dialog.open(ReadonlyModalComponent, {
+    this.dialog.open(ReadonlyModalComponent, {
       width: '500px',
       height: '500px',
       panelClass: 'custom-modalbox',
@@ -182,7 +182,7 @@ export class MainComponent implements OnInit {
   }
 
   addLead(): void {
-    const dialogRef = this.dialog.open(LeadModalComponent, {
+    this.dialog.open(LeadModalComponent, {
       width: '500px',
       height: '500px',
       panelClass: 'custom-modalbox',
